@@ -1,17 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  font-size: 16px;
-  font-weight: 400;
-  font-family: "Nunito Sans", sans-serif;
-}
-
 main .background {
   background-image: url(/asset/img/img_bg.jpeg);
   background-size: cover;
@@ -44,4 +30,4 @@ main .background .container .btn:hover {
   background-color: #13502F;
   transition: all 0.5s;
   padding: 10px;
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=homepage.css.map */
