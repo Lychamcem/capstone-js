@@ -27,10 +27,10 @@ body {
   top: 40%;
   left: 5%;
 }
-.homepage__main .homepage__background .homepage__content .homepage__button{
+.homepage__main .homepage__background .homepage__content .homepage__button {
   color: #13502F;
   background-color: #EBAD01;
-  font-size: 30px;
+  font-size: 25px;
   margin: 10px;
   padding-top: 30px;
   width: 150px;
@@ -38,10 +38,10 @@ body {
   text-align: center;
   outline: #13502F;
   border: 2px #13502F solid;
+  transition: all 0.5s;
 }
 .homepage__main .homepage__background .homepage__content .homepage__button:hover {
   color: #EBAD01;
   background-color: #13502F;
-  transition: all 0.5s;
   padding: 10px;
 }/*# sourceMappingURL=styles.css.map */
