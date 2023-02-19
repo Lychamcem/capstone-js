@@ -12,14 +12,14 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
-main .background {
+.homepage__main .homepage__background {
   background-image: url(/asset/img/img_bg.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
 }
-main .background .container {
+.homepage__main .homepage__background .homepage__content {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -27,7 +27,7 @@ main .background .container {
   top: 40%;
   left: 5%;
 }
-main .background .container .btn {
+.homepage__main .homepage__background .homepage__content .homepage__button{
   color: #13502F;
   background-color: #EBAD01;
   font-size: 30px;
@@ -39,7 +39,7 @@ main .background .container .btn {
   outline: #13502F;
   border: 2px #13502F solid;
 }
-main .background .container .btn:hover {
+.homepage__main .homepage__background .homepage__content .homepage__button:hover {
   color: #EBAD01;
   background-color: #13502F;
   transition: all 0.5s;
