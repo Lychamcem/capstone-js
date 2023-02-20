@@ -1,0 +1,18 @@
+@mixin textStyle($color, $fs, $fw) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+@mixin buttonStyle($bg, $border, $borderRadius, $px, $py) {
+    background-color: $bg;
+    border: $border;
+    border-radius: $borderRadius;
+    padding: $py $px;
+}
+
+@mixin buttonStyleHover($bg, $color, $opa) {
+    background-color: $bg;
+    color: $color !important;
+    opacity: $opa;
+}

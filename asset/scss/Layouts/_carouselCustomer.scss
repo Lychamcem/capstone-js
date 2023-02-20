@@ -1,0 +1,20 @@
+.carousel {
+    background-color: $color-green-light;
+    padding: 150px 20px 50px 20px;
+
+    .carousel-content {
+        h2 {
+            font-size: 3rem;
+        }
+
+        p {
+            margin: 1rem 0;
+            font-size: 1.8rem;
+        }
+    }
+
+    img {
+        width: 80%;
+        height: 600px;
+    }
+}
