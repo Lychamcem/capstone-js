@@ -1,0 +1,46 @@
+
+body{
+    background-color: rgb(238, 161, 201);
+
+    .AdminContent{
+        color: rgb(159, 202, 240);
+        padding: 150px;
+    
+        ul{
+            background-color: $color-green-dark;
+            list-style: none;
+            display: flex;
+            justify-content:space-between;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0px 0px;
+            
+            li{
+                font-size: 30px;
+                font-weight: 700;
+                text-align: left;
+
+                a:hover{
+                    span{
+                        color: rgb(159, 202, 240);
+                    }
+                }
+    
+            }
+        }
+
+        table{
+            th{
+                text-align: center;
+            }
+        }
+
+    }
+
+    .AddingProductForm{
+        .FormTitle{
+            h2{
+                font-weight: 700;
+            }
+        }
+    }
+}

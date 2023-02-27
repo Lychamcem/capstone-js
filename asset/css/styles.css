@@ -359,4 +359,34 @@ footer .footer__right a:hover {
 }
 .modal-dialog .modal-content .modal-footer button {
   color: white;
+}
+
+body {
+  background-color: rgb(238, 161, 201);
+}
+body .AdminContent {
+  color: rgb(159, 202, 240);
+  padding: 150px;
+}
+body .AdminContent ul {
+  background-color: #13502f;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-radius: 10px 10px 0px 0px;
+}
+body .AdminContent ul li {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: left;
+}
+body .AdminContent ul li a:hover span {
+  color: rgb(159, 202, 240);
+}
+body .AdminContent table th {
+  text-align: center;
+}
+body .AddingProductForm .FormTitle h2 {
+  font-weight: 700;
 }/*# sourceMappingURL=styles.css.map */
