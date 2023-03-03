@@ -1,3 +1,14 @@
+import Cart from '../Model/Cart.js'
+import Product from '../../Product.js';
+import {apiGetProducts} from '../services/ProductAPI.js';
+import Swal from '../../node_modules/sweetalert2/src/sweetalert2.js';
+
+// set global functions
+window.addProductToCart = addProductToCart;
+window.decreaseQuantity = decreaseQuantity;
+window.increaseQuantity = increaseQuantity;
+window.removeProduct = removeProduct;
+
 getProducts();
 const cart = getProductsInCart();
 
@@ -67,7 +78,7 @@ function renderProducts(products) {
                         <a href="#">Click here for more details</a>
                         <br>
                         <div class="text-center">
-                            <button onclick="addProductToCart('${product.id}','${product.name}','${product.price}','${product.img}')" class="btn-yellow w-50">Add to cart</button>
+                            <button onclick="window.addProductToCart('${product.id}','${product.name}','${product.price}','${product.img}')" class="btn-yellow w-50">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -89,14 +100,14 @@ function renderCartModal() {
                     <img style='width:50px; height: 50px;' src='${item.img}' alt='${item.img}'/>
                 </td>
                 <td>
-                    <button type='button' class='btn decrease' onclick="decreaseQuantity('${item.id}')">-</button>
+                    <button type='button' class='btn decrease' onclick="window.decreaseQuantity('${item.id}')">-</button>
                     ${item.quantity}
-                    <button type='button' class='btn increase' onclick="increaseQuantity('${item.id}')">+</button>
+                    <button type='button' class='btn increase' onclick="window.increaseQuantity('${item.id}')">+</button>
                 </td>
                 <td>$${item.price}</td>
                 <td>$${(item.quantity * item.price).toLocaleString()}</td>
                 <td>
-                    <button class='btn btn-danger remove' onclick="removeProduct('${item.id}')">Remove</button>
+                    <button class='btn btn-danger remove' onclick="window.removeProduct('${item.id}')">Remove</button>
                 </td>
             </tr>
         `
@@ -212,6 +223,7 @@ getElement('#emptyCart').onclick = () => {
 }
 
 getElement('#pay').onclick = () => {
+    console.log(1)
     if (!cart.arrayItems.length) {
         Swal.fire({
             icon: 'error',

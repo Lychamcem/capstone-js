@@ -1,4 +1,5 @@
-class Cart {
+import CartItem from "./CartItem.js";
+export default class Cart {
     constructor(arrayItems) {
         this.arrayItems = arrayItems; // contains list of added items
     }

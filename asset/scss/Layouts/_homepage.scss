@@ -1,40 +1,38 @@
 // HOMEPAGE
 .homepage__main {
-    .homepage__background {
-        background-image: url(/asset/img/img_bg.jpeg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 100vh;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-image: url("../img/background.png");
+    background-size: cover;
 
-        .homepage__content {
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
+    .homepage__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
 
-            position: absolute;
-            top: 40%;
-            left: 5%;
+        position: absolute;
+        top: 40%;
+        left: 5%;
 
-            .homepage__button {
-                color: #13502F;
-                background-color: #EBAD01;
-                font-size: 25px;
-                margin: 10px;
-                padding-top: 30px;
-                width: 150px;
-                height: 150px;
-                text-align: center;
-                outline: #13502F;
-                border: 2px #13502F solid;
-                transition: all 0.5s;
-            }
+        .homepage__button {
+            color: #13502F;
+            background-color: #EBAD01;
+            font-size: 25px;
+            margin: 10px;
+            padding-top: 30px;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            outline: #13502F;
+            border: 2px #13502F solid;
+            transition: all 0.5s;
+        }
 
-            .homepage__button:hover {
-                color: #EBAD01;
-                background-color: #13502F;
-                padding: 10px;
-            }
+        .homepage__button:hover {
+            color: #EBAD01;
+            background-color: #13502F;
+            padding: 10px;
         }
     }
 }

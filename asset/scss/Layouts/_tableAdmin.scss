@@ -1,44 +1,50 @@
-
-body{
+#admin__section {
     background-color: rgb(238, 161, 201);
 
-    .AdminContent{
+    .AdminContent {
         color: rgb(159, 202, 240);
         padding: 150px;
-    
-        ul{
+
+        .HeaderTable ul {
             background-color: $color-green-dark;
             list-style: none;
             display: flex;
-            justify-content:space-between;
+            justify-content: space-between;
             padding: 15px 20px;
+            margin: 0;
             border-radius: 10px 10px 0px 0px;
-            
-            li{
+
+            li {
                 font-size: 30px;
                 font-weight: 700;
                 text-align: left;
 
-                a:hover{
-                    span{
+                a:hover {
+                    span {
                         color: rgb(159, 202, 240);
                     }
                 }
-    
+
+                button {
+                    font-size: 1rem;
+                }
+
             }
         }
 
-        table{
-            th{
+        .tableAdmin {
+            background-color: #fff;
+
+            th {
                 text-align: center;
             }
         }
 
     }
 
-    .AddingProductForm{
-        .FormTitle{
-            h2{
+    .AddingProductForm {
+        .FormTitle {
+            h2 {
                 font-weight: 700;
             }
         }

@@ -21,9 +21,9 @@ body {
   font-weight: 700;
 }
 .btn-yellow:hover {
-  background-color: #ebad01;
+  background-color: #ebad01 ip !important;
   color: #0f1316 !important;
-  opacity: 0.7;
+  opacity: 0.7 !important;
 }
 
 .btn-green {
@@ -35,9 +35,9 @@ body {
   font-weight: 700;
 }
 .btn-green:hover {
-  background-color: #13502f;
+  background-color: #13502f ip !important;
   color: #0f1316 !important;
-  opacity: 0.7;
+  opacity: 0.7 !important;
 }
 
 .btn-grey {
@@ -49,9 +49,9 @@ body {
   font-weight: 700;
 }
 .btn-grey:hover {
-  background-color: grey;
+  background-color: grey ip !important;
   color: #0f1316 !important;
-  opacity: 0.7;
+  opacity: 0.7 !important;
 }
 
 .btn-red {
@@ -63,19 +63,19 @@ body {
   font-weight: 700;
 }
 .btn-red:hover {
-  background-color: red;
+  background-color: red ip !important;
   color: #0f1316 !important;
-  opacity: 0.7;
+  opacity: 0.7 !important;
 }
 
-.homepage__main .homepage__background {
-  background-image: url(/asset/img/img_bg.jpeg);
+.homepage__main {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-image: url("../img/background.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100vh;
 }
-.homepage__main .homepage__background .homepage__content {
+.homepage__main .homepage__content {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -83,7 +83,7 @@ body {
   top: 40%;
   left: 5%;
 }
-.homepage__main .homepage__background .homepage__content .homepage__button {
+.homepage__main .homepage__content .homepage__button {
   color: #13502F;
   background-color: #EBAD01;
   font-size: 25px;
@@ -96,7 +96,7 @@ body {
   border: 2px #13502F solid;
   transition: all 0.5s;
 }
-.homepage__main .homepage__background .homepage__content .homepage__button:hover {
+.homepage__main .homepage__content .homepage__button:hover {
   color: #EBAD01;
   background-color: #13502F;
   padding: 10px;
@@ -361,32 +361,39 @@ footer .footer__right a:hover {
   color: white;
 }
 
-body {
+#admin__section {
   background-color: rgb(238, 161, 201);
 }
-body .AdminContent {
+#admin__section .AdminContent {
   color: rgb(159, 202, 240);
   padding: 150px;
 }
-body .AdminContent ul {
+#admin__section .AdminContent .HeaderTable ul {
   background-color: #13502f;
   list-style: none;
   display: flex;
   justify-content: space-between;
   padding: 15px 20px;
+  margin: 0;
   border-radius: 10px 10px 0px 0px;
 }
-body .AdminContent ul li {
+#admin__section .AdminContent .HeaderTable ul li {
   font-size: 30px;
   font-weight: 700;
   text-align: left;
 }
-body .AdminContent ul li a:hover span {
+#admin__section .AdminContent .HeaderTable ul li a:hover span {
   color: rgb(159, 202, 240);
 }
-body .AdminContent table th {
+#admin__section .AdminContent .HeaderTable ul li button {
+  font-size: 1rem;
+}
+#admin__section .AdminContent .tableAdmin {
+  background-color: #fff;
+}
+#admin__section .AdminContent .tableAdmin th {
   text-align: center;
 }
-body .AddingProductForm .FormTitle h2 {
+#admin__section .AddingProductForm .FormTitle h2 {
   font-weight: 700;
 }/*# sourceMappingURL=styles.css.map */

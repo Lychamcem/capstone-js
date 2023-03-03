@@ -1,4 +1,14 @@
+import { apiGetProducts, apiUpdateProduct, apiGetProductById, apiDeleteProduct, apiCreateProduct } from "../services/ProductAPI.js";
+import Product from '../../Product.js';
+import Swal from '../../node_modules/sweetalert2/src/sweetalert2.js';
+
 getProducts();
+
+// make global functions based on functions imported from ProductAPI
+window.createProduct = createProduct;
+window.deleteProduct = deleteProduct;
+window.selectProduct = selectProduct;
+window.updateProduct = updateProduct;
 
 // REQUEST API
 function getProducts(searchValue) {
@@ -23,37 +33,115 @@ function getProducts(searchValue) {
 
 // ADDING PRODUCT
 function createProduct() {
+  let name = getElement("#ProductName").value.trim();
+  let img = getElement("#ProductImage").value.trim();
+  let price = getElement("#ProductPrice").value.trim();
+  let description = getElement("#ProductDescription").value.trim();
+  let type = getElement("#ProductType").value === '1' ? "Indoor Plants" : "Outdoor Plants";
+  if (!name || !img || !price || !description || !type) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Please fill information again'
+    })
+    return;
+  }
   const product = {
-    name: getElement("#ProductName").value,
-    img: getElement("#ProductImage").value,
-    price: getElement("#ProductPrice").value,
-    description: getElement("#ProductDescription").value,
-    price: getElement("#ProductType").value,
+    name,
+    img,
+    price,
+    description,
+    type
   };
 
   apiCreateProduct(product)
-    .then((response) => {
+    .then((data) => {
       getProducts();
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Add new product successfully !',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
+    .then(() => {
+      getElement("#ProductName").value = '';
+      getElement("#ProductImage").value = '';
+      getElement("#ProductPrice").value = '';
+      getElement("#ProductDescription").value = '';
+      getElement("#ProductType").value = '';
     })
     .catch((error) => {
-      alert("Thêm sản phẩm thất bại");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Fail to add a new product !'
+      })
     });
+
 }
 
 // DELETE PRODUCT
 function deleteProduct(productId) {
-  apiDeleteProduct(productId)
-    .then(() => {
-      getProducts();
-    })
+  //sweet alert animation
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success ms-1',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
 
-    .catch(() => {
-      alert("Xóa sản phẩm thất bại");
-    });
+  swalWithBootstrapButtons.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      //if confirmed to delete, call API
+      apiDeleteProduct(productId)
+        .then(() => {
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'The product has been deleted.',
+            'success'
+          )
+          getProducts();
+        })
+        .catch(() => {
+          swalWithBootstrapButtons.fire(
+            'Fail to delete',
+            'Please try again',
+            'error'
+          )
+        });
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelled',
+        'The product is safe :)',
+        'error'
+      )
+    }
+  })
 }
 
 // Hàm lấy chi tiết 1 sản phẩm và hiển thị lên modal
 function selectProduct(productId) {
+  // Mở và cập nhật giao diện cho modal
+  getElement(".modal-title").innerHTML = "Update Product";
+  getElement(".modal-footer").innerHTML = `
+    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+    <button class="btn btn-primary" onclick="window.updateProduct('${productId}')">Update</button>
+  `;
+
   apiGetProductById(productId)
     .then((response) => {
       const product = response.data;
@@ -61,37 +149,52 @@ function selectProduct(productId) {
       getElement("#ProductImage").value = product.img;
       getElement("#ProductPrice").value = product.price;
       getElement("#ProductDescription").value = product.description;
-      getElement("#ProductType").value = product.type;
-
-      // Mở và cập nhật giao diện cho modal
-      getElement(".modal-title").innerHTML = "Update Product";
-      getElement(".modal-footer").innerHTML = `
-        <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button class="btn btn-primary" onclick="updateProduct('${product.id})">Update</button>
-      `;
-      $("#myModal").modal("show");
+      getElement("#ProductType").value = product.type === "Indoor Plants" ? 1 : 2;
     })
     .catch((error) => {
-      alert("Lấy chi tiết sản phẩm thất bại");
+      alert("Fail to get information about product");
     });
 }
 
 // UPDATE PRODUCT
 function updateProduct(productId) {
+  let name = getElement("#ProductName").value.trim();
+  let img = getElement("#ProductImage").value.trim();
+  let price = getElement("#ProductPrice").value.trim();
+  let description = getElement("#ProductDescription").value.trim();
+  let type = getElement("#ProductType").value === '1' ? "Indoor Plants" : "Outdoor Plants";
+  if (!name || !img || !price || !description || !type) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Please fill information again'
+    })
+  }
   const product = {
-    name: getElement("#ProductName").value,
-    img: getElement("#ProductImage").value,
-    price: getElement("#ProductPrice").value,
-    description: getElement("#ProductDescription").value,
-    type: getElement("#ProductType").value,
+    name,
+    img,
+    price,
+    description,
+    type
   };
 
-  apiUpdateProduct(productId)
-    .then((respone) => {
+  apiUpdateProduct(productId, product)
+    .then((response) => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Update product successfully !',
+        showConfirmButton: false,
+        timer: 1500
+      })
       getProducts();
     })
     .catch((error) => {
-      alert("Cập nhật sản phẩm thất bại");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Fail to update product !'
+      })
     });
 }
 
@@ -102,25 +205,27 @@ function renderProducts(products) {
       result +
       `
       <tr>
-        <td>${index + 1}</td>
+        <th scope="row" class='fw-bold'>${index + 1}</th>
         <td>${product.name}</td>
-        <td>${product.price}</td>
+        <td>$${product.price}</td>
         <td>
           <img src="${product.img}" with="70" height="70" />
         </td>
         <td>${product.description}</td>
         <td>
-          <button class="btn btn-primary"
-          onclick="selectProduct('${product.id}')">
-          Xem
-          </button>
-          <button class="btn btn-danger"
-          data-toggle="modal"
-          data-target="#myModal"
-          onclick="deleteProduct('${product.id}')">
-          Xoá
+          <button class="btn btn-primary" 
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+          onclick="window.selectProduct('${product.id}')">
+          Edit
           </button>
         </td>
+        <td>
+          <button class="btn btn-danger"
+          onclick="window.deleteProduct('${product.id}')">
+          Delete
+          </button>
+          </td>
       </tr>
     `
     );
@@ -131,11 +236,18 @@ function renderProducts(products) {
 
 // DOM
 getElement("#AddProduct").addEventListener("click", () => {
+  // reset modal
+  getElement("#ProductName").value = '';
+  getElement("#ProductImage").value = '';
+  getElement("#ProductPrice").value = '';
+  getElement("#ProductDescription").value = '';
+  getElement("#ProductType").value = '';
+
   getElement(".modal-title").innerHTML = "Adding Product";
   getElement(".modal-footer").innerHTML = `
-  <button id="AddProduct" type="submit" class="btn btn-primary btn-green">Add</button>
-  <button type="button" class="btn btn-secondary btn-red" data-bs-dismiss="modal">Close</button>
-    `;
+    <button id="addNewProduct" onclick="window.createProduct()" type="submit" class="btn-green">Add</button>
+    <button type="button" class="btn-red" data-bs-dismiss="modal">Close</button>
+  `;
 });
 
 // Helpers

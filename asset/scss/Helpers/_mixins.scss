@@ -12,7 +12,7 @@
 }
 
 @mixin buttonStyleHover($bg, $color, $opa) {
-    background-color: $bg;
+    background-color: $bg ip !important;
     color: $color !important;
-    opacity: $opa;
+    opacity: $opa !important;
 }

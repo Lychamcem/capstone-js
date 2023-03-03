@@ -16,7 +16,8 @@
 
     <!-- MAIN CSS  -->
     <link rel="stylesheet" href="../../asset/css/styles.css">
-
+    <!-- sweetalert css -->
+    <link rel="stylesheet" href="../../node_modules/sweetalert2/dist/sweetalert2.css">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
                 </button>
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a href="">
+                        <a href="../../index.html">
                             <i class="fa fa-home"></i>
                         </a>
                         <a id="cart" data-bs-toggle="modal" data-bs-target="#cartModal">
@@ -78,7 +79,7 @@
                     <option selected>All Types</option>
                     <option value="1">Indoor Plants</option>
                     <option value="2">Outdoor Plants</option>
-                  </select>
+                </select>
                 <div id="products" class="row">
 
                 </div>
@@ -186,7 +187,7 @@
                         <button type="button" class="btn-grey" data-bs-dismiss="modal">Continue Shopping</button>
                         <button type="button" class="btn-red" id="emptyCart">Empty Cart</button>
                     </div>
-                    <button  id="pay" type="button" class="btn-green">Pay Now $</button>
+                    <button id="pay" type="button" class="btn-green">Pay Now $</button>
                 </div>
             </div>
         </div>
@@ -200,21 +201,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
-    
+
     <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- Axios library -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
-    <!-- Sweet Alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="../../Product.js"></script>
-    <script src="../model/CartItem.js"></script>
-    <script src="../model/Cart.js"></script>
-    <script src="../services/ProductAPI.js"></script>
-    <script src="../controller/customer.js"></script>
+    <script type="module" src="../controller/customer.js"></script>
 </body>
 
 </html>

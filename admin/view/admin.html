@@ -16,10 +16,12 @@
 
     <!-- MAIN CSS  -->
     <link rel="stylesheet" href="../../asset/css/styles.css">
+    <!-- sweetalert css -->
+    <link rel="stylesheet" href="../../node_modules/sweetalert2/dist/sweetalert2.css">
 
 </head>
 
-<body>
+<body id="admin__section">
     <header class="headerCustomer">
         <!-- place navbar here -->
         <nav class="navbar navbar-expand-lg">
@@ -38,13 +40,8 @@
                 </button>
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a href="./admin.html">
+                        <a href="../../index.html">
                             <i class="fa fa-home"></i>
-                        </a>
-                        <a href="../../customer/view/customer.html" id="cart" data-bs-toggle="modal"
-                            data-bs-target="#cartModal">
-                            <i class="fa fa-shopping-cart"></i>
-                            <!-- <span class="totalQuantity"></span> -->
                         </a>
                     </div>
                 </div>
@@ -60,11 +57,11 @@
                 <ul>
                     <li>Plant Management</li>
                     <li>
-                        <a id="AddProduct" class="btn btn-primary btn-yellow" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                        <button id="AddProduct" class="btn-yellow" data-bs-toggle="modal"
+                            data-bs-target="#myModal">
                             <i class="fa-solid fa-circle-plus"></i>
-                            <span>Add Plant</span>
-                        </a>
+                            Add Plant
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -77,8 +74,8 @@
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Photo</th>
-                            <th scope="col">Discription</th>
-                            <th scope="col">Adjustment</th>
+                            <th scope="col">Description</th>
+                            <th scope="col" colspan="3"><i class="fa fa-cog"></i> Action</th>
                         </tr>
                     </thead>
 
@@ -90,12 +87,12 @@
         </div>
 
         <!-- ADDING PRODUCT INFO MODAL -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
             tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title">Plant Management</h2>
+                        <h2 class="modal-title fw-bold">Plant Management</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -117,10 +114,9 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="fa fa-sun-o" aria-hidden="true"></i></span>
-                            <select name="" id="ProductType">
-                                <option value="">Choose type</option>
-                                <option value="">Indoor Plants</option>
-                                <option value="">Outdoor Plants</option>
+                            <select class="form-select" id="ProductType" aria-label="Default select example">
+                                <option value="1">Indoor Plants</option>
+                                <option value="2">Outdoor Plants</option>
                             </select>
                         </div>
                     </div>
@@ -208,12 +204,7 @@
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- Axios library -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <script src="../services/productAPI.js"></script>
-    <script src="../../Product.js"></script>
-    <script src="../controller/admin.js"></script>
+    <script type="module" src="../controller/admin.js"></script>
 </body>
 
 </html>

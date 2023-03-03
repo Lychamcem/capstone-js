@@ -1,6 +1,8 @@
-const URL = "https://63fceaf1859df29986c77779.mockapi.io/api/products";
+import axios from "../../node_modules/axios/dist/esm/axios.js";
 
-function apiGetProducts(searchValue) {
+const URL = "https://63e8647dcbdc565873853326.mockapi.io/api/products";
+
+export function apiGetProducts(searchValue) {
   return axios({
     method: "GET",
     url: URL,
@@ -10,7 +12,7 @@ function apiGetProducts(searchValue) {
   });
 }
 
-function apiCreateProduct(product) {
+export function apiCreateProduct(product) {
   return axios({
     method: "POST",
     url: URL,
@@ -18,21 +20,21 @@ function apiCreateProduct(product) {
   });
 }
 
-function apiDeleteProduct(productId) {
+export function apiDeleteProduct(productId) {
   return axios({
     method: "DELETE",
     url: `${URL}/${productId}`,
   });
 }
 
-function apiGetProductById(productId) {
+export function apiGetProductById(productId) {
   return axios({
     method: "GET",
     url: `${URL}/${productId}`,
   });
 }
 
-function apiUpdateProduct(productId, product) {
+export function apiUpdateProduct(productId, product) {
   return axios({
     method: "PUT",
     url: `${URL}/${productId}`,
