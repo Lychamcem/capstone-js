@@ -3,7 +3,7 @@
 
     .AdminContent {
         color: rgb(159, 202, 240);
-        padding: 150px;
+        padding: 150px 0px;
 
         .HeaderTable ul {
             background-color: $color-green-dark;
@@ -49,4 +49,30 @@
             }
         }
     }
+}
+
+
+//responsive
+@include responsive("small"){
+    .AdminContent .HeaderTable{
+        padding: $py-0 $px-100;
+    } 
+}
+@include responsive("medium"){
+    .AdminContent, .HeaderTable{
+        padding: $py-150 $px-150;
+        h1{
+            font-size: $fs-8;
+        }
+    } 
+}
+@include responsive("large"){
+    .AdminContent .HeaderTable{
+        padding: $py-150 $px-150;
+    } 
+}
+@include responsive("extra-large"){
+    .AdminContent, .HeaderTable{
+        padding: $py-150 $px-150;
+    } 
 }
