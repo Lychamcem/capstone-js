@@ -3,7 +3,7 @@
 
     .AdminContent {
         color: rgb(159, 202, 240);
-        padding: 150px;
+        padding: 150px 0px;
 
         .HeaderTable ul {
             background-color: $color-green-dark;
@@ -50,3 +50,54 @@
         }
     }
 }
+
+@include responsive('xl') {
+    .AdminContent, .AdminModal {
+        padding: 150px;
+    }
+}
+
+@include responsive('lg') {
+    .AdminContent {
+        padding: 130px;
+    }
+    .AdminModal{
+        padding: 110px;
+    }
+}
+
+@include responsive('sm') {
+    .AdminContent{
+        padding: 0px;
+        .tableAdmin {
+            margin: 0 10px;
+            width: auto;
+            align-items: center;
+        }
+    }
+    .AdminModal{
+        padding: 50px;
+    }
+}
+
+@include responsive('md') {
+    .AdminContent{
+        .tableAdmin {
+            thead {
+                tr{
+                    display: flex;
+                    justify-content: space-evenly;
+                }
+            }
+            th,td {
+                display: block;
+                border-bottom: none;
+                text-align: center;
+            }
+            tr:last-child td {
+                border-bottom: 1px solid #ccc;
+            }
+    }
+    }
+}
+

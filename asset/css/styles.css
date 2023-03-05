@@ -687,7 +687,7 @@ footer .footer__right a:hover {
 }
 #admin__section .AdminContent {
   color: rgb(159, 202, 240);
-  padding: 150px;
+  padding: 150px 0px;
 }
 #admin__section .AdminContent .HeaderTable ul {
   background-color: #13502f;
@@ -717,4 +717,45 @@ footer .footer__right a:hover {
 }
 #admin__section .AddingProductForm .FormTitle h2 {
   font-weight: 700;
+}
+
+@media screen and (max-width: 1199.98px) {
+  .AdminContent, .AdminModal {
+    padding: 150px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .AdminContent {
+    padding: 130px;
+  }
+  .AdminModal {
+    padding: 110px;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  .AdminContent {
+    padding: 0px;
+  }
+  .AdminContent .tableAdmin {
+    margin: 0 10px;
+    width: auto;
+    align-items: center;
+  }
+  .AdminModal {
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .AdminContent .tableAdmin thead tr {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .AdminContent .tableAdmin th, .AdminContent .tableAdmin td {
+    display: block;
+    border-bottom: none;
+    text-align: center;
+  }
+  .AdminContent .tableAdmin tr:last-child td {
+    border-bottom: 1px solid #ccc;
+  }
 }/*# sourceMappingURL=styles.css.map */
