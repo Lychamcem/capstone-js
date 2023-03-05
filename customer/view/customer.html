@@ -22,31 +22,31 @@
 
 <body>
     <header class="headerCustomer">
+        <div class="background__header"></div>
         <!-- place navbar here -->
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <!-- <div class="logo">
-                    <img src="../../asset/img/header.png" alt="header_png">
-                </div> -->
                 <a class="navbar-brand" href="#">
-                    <img src="../../asset/img/header.png" alt="header_png">
+                    <i class="fa fa-leaf"></i>
                     GREENERY
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a href="../../index.html">
-                            <i class="fa fa-home"></i>
-                        </a>
-                        <a id="cart" data-bs-toggle="modal" data-bs-target="#cartModal">
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mb-2 mb-lg-0 w-100 d-flex justify-content-end">
+                        <li class="nav-item text-center">
+                            <a href="../../index.html">
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item text-center" id="cart" data-bs-toggle="modal" data-bs-target="#cartModal">
                             <i class="fa fa-shopping-cart"></i>
                             <span class="totalQuantity"></span>
-                        </a>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -55,16 +55,16 @@
         <div class="carousel">
             <div class="container">
                 <div class="row">
-                    <div class="col-6 d-flex flex-column justify-content-center">
+                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12 d-flex flex-column justify-content-center">
                         <div class="carousel-content">
                             <h2 class="fw-bold">More plants, more love</h2>
                             <p>
                                 New plants are coming in this month, we decide to discount 10% all new babies
                             </p>
-                            <button class="btn-yellow">Buy now !</button>
+                            <button class="btn-yellow mb-3">Buy now !</button>
                         </div>
                     </div>
-                    <div class="col-6 text-end">
+                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12 mt-sm-3 mt-xs-2 text-end">
                         <img class="img-fluid" src="../../asset/img/carousel.png" alt="carousel_png">
                     </div>
                 </div>
@@ -90,7 +90,7 @@
         <!-- place footer here -->
         <div class="container">
             <div class="row">
-                <div class="contact col-3">
+                <div class="contact col-lg-3 col-md-6 col-sm-12">
                     <h1 class="fw-bold display-3">GREENERY</h1>
                     <ul>
                         <li>Address <i class="fa fa-address-book"></i> :
@@ -107,29 +107,27 @@
                         <img src="../../asset/img/footer2.png" alt="footer2">
                     </div>
                 </div>
-                <div class="readMore col-3">
+                <div class="readMore col-lg-3 col-md-6 col-sm-12">
                     <h1 class="fw-bold display-7">Read more</h1>
                     <ul>
-                        <ul>
-                            <li>
-                                <a href="#">> Links</a>
-                            </li>
-                            <li>
-                                <a href="#">> Blog Posts</a>
-                            </li>
-                            <li>
-                                <a href="#">> About Us</a>
-                            </li>
-                            <li>
-                                <a href="#">> Service</a>
-                            </li>
-                            <li>
-                                <a href="#">> Team</a>
-                            </li>
-                        </ul>
+                        <li>
+                            <a href="#">> Links</a>
+                        </li>
+                        <li>
+                            <a href="#">> Blog Posts</a>
+                        </li>
+                        <li>
+                            <a href="#">> About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">> Service</a>
+                        </li>
+                        <li>
+                            <a href="#">> Team</a>
+                        </li>
                     </ul>
                 </div>
-                <div class="col-6 text-end">
+                <div class="col-lg-6 col-md-12 col-sm-12 text-end">
                     <div class="footer__right text-center">
                         <div>
                             <img src="../../asset/img/footer1.png" alt="footer2">
@@ -208,6 +206,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script type="module" src="../controller/customer.js"></script>
+    <script src="../../main.js"></script>
 </body>
 
 </html>
