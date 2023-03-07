@@ -1,5 +1,5 @@
 .modal-dialog {
-    min-width: 900px;
+    min-width: 75%;
 
     .modal-content {
         background-color: $color-yellow;
@@ -34,7 +34,8 @@
                             color: white;
                         }
 
-                        .increase, .decrease {
+                        .increase,
+                        .decrease {
                             background-color: $color-yellow;
                         }
                     }
@@ -47,6 +48,214 @@
 
             button {
                 color: white;
+            }
+        }
+    }
+}
+
+@include responsive('lg') {
+    .modal-dialog {
+
+        .modal-content {
+
+            .modal-body {
+
+                .table {
+
+                    thead {
+                        th {
+                            font-size: 0.8rem;
+                        }
+                    }
+
+                    tbody {
+                        tr {
+
+                            td {
+                                font-size: 0.8rem;
+                            }
+
+                            .increase,
+                            .decrease {
+                                padding: 5px;
+                                font-size: 10px;
+                            }
+
+                            .remove {
+                                padding: 5px;
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive('md') {
+    .modal-dialog {
+        
+        .modal-header {
+            h5 {
+                font-size: 2rem;
+            }
+        }
+
+        .modal-content {
+
+            .modal-body {
+
+                .table {
+
+                    thead {
+                        th {
+                            font-size: 0.7rem;
+                            padding: 6px !important;
+                        }
+                    }
+
+                    tbody {
+                        tr {
+
+                            td {
+                                font-size: 0.7rem;
+                                padding: 6px !important;
+                            }
+
+                            .increase,
+                            .decrease {
+                                padding: 5px;
+                                font-size: 10px;
+                            }
+
+                            .remove {
+                                padding: 5px;
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+
+                #totalPayment {
+                    th, td {
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            button {
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
+
+@include responsive('sm') {
+    .modal-dialog {
+        
+        .modal-header {
+            h5 {
+                font-size: 1.6rem;
+            }
+        }
+
+        .modal-content {
+
+            .modal-body {
+
+                .table {
+
+                    thead {
+                        th {
+                            font-size: 0.4rem;
+                            padding: 6px;
+                        }
+                    }
+
+                    tbody {
+                        tr {
+
+                            td {
+                                font-size: 0.4rem;
+                                padding: 6px !important;
+                            }
+
+                            .increase,
+                            .decrease {
+                                padding: 5px;
+                                font-size: 10px;
+                            }
+
+                            .remove {
+                                padding: 3px;
+                                font-size: 6px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            button {
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
+
+@include responsive('xs') {
+    .modal-dialog {
+        
+        .modal-header {
+            h5 {
+                font-size: 1.6rem;
+            }
+        }
+
+        .modal-content {
+
+            .modal-body {
+
+                .table {
+
+                    thead {
+                        th {
+                            font-size: 0.4rem;
+                            padding: 6px;
+                        }
+                    }
+
+                    tbody {
+                        tr {
+
+                            td {
+                                font-size: 0.4rem;
+                                padding: 6px !important;
+                            }
+
+                            .increase,
+                            .decrease {
+                                padding: 4px;
+                                font-size: 6px;
+                            }
+
+                            .remove {
+                                padding: 3px;
+                                font-size: 6px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            button {
+                font-size: 0.5rem;
             }
         }
     }

@@ -56,7 +56,7 @@ function getProducts(searchValue) {
 function renderProducts(products) {
     const html = products.reduce((result, product, index) => {
         return result + `
-            <div class="col-4">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-4 px-4">
                 <div class="product__item text-center">
                     <div class="card pt-3">
                         <div class="d-flex justify-content-center">

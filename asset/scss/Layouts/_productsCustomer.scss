@@ -2,19 +2,20 @@
     padding: 3rem 0;
 
     .products__heading {
-        margin: 0 400px;
+        margin: auto;
+        width: 50%;
         background-color: $color-yellow;
     }
 
     .products__content {
         margin-top: 3rem;
-        
+
         .listType {
-            width: 25%;
+            width: 40%;
         }
 
         .product__item {
-            width: 90%;
+            // width: 90%;
             height: 500px;
             box-shadow: 3px 3px 3px #e9effa;
             cursor: pointer;
@@ -67,6 +68,134 @@
                     li {
                         margin-bottom: 1rem;
                     }
+                }
+            }
+        }
+    }
+}
+
+@include responsive('xl') {
+    .products {
+
+        .products__content {
+
+            .product__item {
+                height: 450px;
+
+                img {
+                    height: 350px;
+                }
+
+                .product__info {
+
+                    h1 {
+                        color: white;
+                        margin-bottom: 2rem;
+                        font-size: 2rem;
+                    }
+
+                    button {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive('lg') {
+    .products {
+        padding: 2rem 2rem;
+
+        .products__content {
+
+            .product__item {
+                height: 400px;
+
+                img {
+                    height: 300px;
+                }
+            }
+        }
+    }
+}
+
+@include responsive('md') {
+    .products {
+        padding: 2rem 2rem;
+
+        .products__content {
+
+            .product__item {
+                width: 100%;
+                height: 700px;
+
+                img {
+                    height: 600px;
+                }
+
+                .product__info {
+
+                    h1 {
+                        font-size: 3rem;
+                    }
+
+                    button {
+                        font-size: 0.9rem;
+                    }
+                }
+
+                h4 {
+                    font-size: 2rem;
+                }
+
+                p {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@include responsive('sm') {
+    .products {
+        padding: 2rem 3rem;
+    }
+}
+
+@include responsive('xs') {
+    .products {
+
+        .products__content {
+            .listType {
+                width: 80%;
+            }
+
+            .product__item {
+                width: 100%;
+                height: 500px;
+
+                img {
+                    height: 300px;
+                }
+
+                .product__info {
+
+                    h1 {
+                        font-size: 1.6rem;
+                    }
+
+                    button {
+                        font-size: 0.5rem;
+                    }
+                }
+
+                h4 {
+                    font-size: 1.6rem;
+                }
+
+                p {
+                    font-size: 1.5rem;
                 }
             }
         }
