@@ -396,4 +396,20 @@ footer .footer__right a:hover {
 }
 #admin__section .AddingProductForm .FormTitle h2 {
   font-weight: 700;
+}
+
+@media screen and (max-width: 992px) {
+  .AdminContent {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .AdminContent {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .AdminContent {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=styles.css.map */

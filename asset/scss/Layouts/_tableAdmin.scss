@@ -51,28 +51,65 @@
     }
 }
 
+@include responsive('xl') {
+   .AdminContent{
+    .HeaderTable{
 
-//responsive
-@include responsive("small"){
-    .AdminContent .HeaderTable{
-        padding: $py-0 $px-100;
-    } 
+    }
+    .tableAdmin{
+
+    }
+   }
 }
-@include responsive("medium"){
-    .AdminContent, .HeaderTable{
-        padding: $py-150 $px-150;
-        h1{
-            font-size: $fs-8;
+
+@include responsive('lg') {
+    .AdminContent{
+        font-size: 20px;
+    .HeaderTable{
+
+    }
+    .tableAdmin{
+        
+    }
+   }
+}
+
+@include responsive('md') {
+    .AdminContent{
+        font-size: 15px;
+        .HeaderTable{
+    
         }
-    } 
+        .tableAdmin{
+            
+        }
+       }
 }
-@include responsive("large"){
-    .AdminContent .HeaderTable{
-        padding: $py-150 $px-150;
-    } 
+
+@include responsive('sm') {
+    .AdminContent{
+        font-size: 12px;
+        .HeaderTable{
+    
+        }
+        .tableAdmin{
+            
+        }
+       }
 }
-@include responsive("extra-large"){
-    .AdminContent, .HeaderTable{
-        padding: $py-150 $px-150;
-    } 
+
+@include responsive('xs') {
+    .AdminContent{
+        padding: 0px;
+        font-size: 10px;
+        .HeaderTable{
+            padding: 5px;
+        }
+        .tableAdmin{
+            
+            button{
+                font-size: 10px;
+            }
+        }
+       }
 }
