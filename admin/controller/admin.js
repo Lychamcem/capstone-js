@@ -1,6 +1,12 @@
-import { apiGetProducts, apiUpdateProduct, apiGetProductById, apiDeleteProduct, apiCreateProduct } from "../services/ProductAPI.js";
-import Product from '../../Product.js';
-import Swal from '../../node_modules/sweetalert2/src/sweetalert2.js';
+import {
+  apiGetProducts,
+  apiUpdateProduct,
+  apiGetProductById,
+  apiDeleteProduct,
+  apiCreateProduct,
+} from "../services/ProductAPI.js";
+import Product from "../../Product.js";
+import Swal from "../../node_modules/sweetalert2/src/sweetalert2.js";
 
 getProducts();
 
@@ -37,13 +43,16 @@ function createProduct() {
   let img = getElement("#ProductImage").value.trim();
   let price = getElement("#ProductPrice").value.trim();
   let description = getElement("#ProductDescription").value.trim();
-  let type = getElement("#ProductType").value === '1' ? "Indoor Plants" : "Outdoor Plants";
+  let type =
+    getElement("#ProductType").value === "1"
+      ? "Indoor Plants"
+      : "Outdoor Plants";
   if (!name || !img || !price || !description || !type) {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Please fill information again'
-    })
+      icon: "error",
+      title: "Oops...",
+      text: "Please fill information again",
+    });
     return;
   }
   const product = {
@@ -51,35 +60,34 @@ function createProduct() {
     img,
     price,
     description,
-    type
+    type,
   };
 
   apiCreateProduct(product)
     .then((data) => {
       getProducts();
       Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Add new product successfully !',
+        position: "top-end",
+        icon: "success",
+        title: "Add new product successfully !",
         showConfirmButton: false,
-        timer: 1500
-      })
+        timer: 1500,
+      });
     })
     .then(() => {
-      getElement("#ProductName").value = '';
-      getElement("#ProductImage").value = '';
-      getElement("#ProductPrice").value = '';
-      getElement("#ProductDescription").value = '';
-      getElement("#ProductType").value = '';
+      getElement("#ProductName").value = "";
+      getElement("#ProductImage").value = "";
+      getElement("#ProductPrice").value = "";
+      getElement("#ProductDescription").value = "";
+      getElement("#ProductType").value = "";
     })
     .catch((error) => {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Fail to add a new product !'
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "Fail to add a new product !",
+      });
     });
-
 }
 
 // DELETE PRODUCT
@@ -87,50 +95,52 @@ function deleteProduct(productId) {
   //sweet alert animation
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
-      confirmButton: 'btn btn-success ms-1',
-      cancelButton: 'btn btn-danger'
+      confirmButton: "btn btn-success ms-1",
+      cancelButton: "btn btn-danger",
     },
-    buttonsStyling: false
-  })
+    buttonsStyling: false,
+  });
 
-  swalWithBootstrapButtons.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'Yes, delete it!',
-    cancelButtonText: 'No, cancel!',
-    reverseButtons: true
-  }).then((result) => {
-    if (result.isConfirmed) {
-      //if confirmed to delete, call API
-      apiDeleteProduct(productId)
-        .then(() => {
-          swalWithBootstrapButtons.fire(
-            'Deleted!',
-            'The product has been deleted.',
-            'success'
-          )
-          getProducts();
-        })
-        .catch(() => {
-          swalWithBootstrapButtons.fire(
-            'Fail to delete',
-            'Please try again',
-            'error'
-          )
-        });
-    } else if (
-      /* Read more about handling dismissals below */
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire(
-        'Cancelled',
-        'The product is safe :)',
-        'error'
-      )
-    }
-  })
+  swalWithBootstrapButtons
+    .fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true,
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        //if confirmed to delete, call API
+        apiDeleteProduct(productId)
+          .then(() => {
+            swalWithBootstrapButtons.fire(
+              "Deleted!",
+              "The product has been deleted.",
+              "success"
+            );
+            getProducts();
+          })
+          .catch(() => {
+            swalWithBootstrapButtons.fire(
+              "Fail to delete",
+              "Please try again",
+              "error"
+            );
+          });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          "Cancelled",
+          "The product is safe :)",
+          "error"
+        );
+      }
+    });
 }
 
 // Hàm lấy chi tiết 1 sản phẩm và hiển thị lên modal
@@ -149,7 +159,8 @@ function selectProduct(productId) {
       getElement("#ProductImage").value = product.img;
       getElement("#ProductPrice").value = product.price;
       getElement("#ProductDescription").value = product.description;
-      getElement("#ProductType").value = product.type === "Indoor Plants" ? 1 : 2;
+      getElement("#ProductType").value =
+        product.type === "Indoor Plants" ? 1 : 2;
     })
     .catch((error) => {
       alert("Fail to get information about product");
@@ -162,39 +173,42 @@ function updateProduct(productId) {
   let img = getElement("#ProductImage").value.trim();
   let price = getElement("#ProductPrice").value.trim();
   let description = getElement("#ProductDescription").value.trim();
-  let type = getElement("#ProductType").value === '1' ? "Indoor Plants" : "Outdoor Plants";
+  let type =
+    getElement("#ProductType").value === "1"
+      ? "Indoor Plants"
+      : "Outdoor Plants";
   if (!name || !img || !price || !description || !type) {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Please fill information again'
-    })
+      icon: "error",
+      title: "Oops...",
+      text: "Please fill information again",
+    });
   }
   const product = {
     name,
     img,
     price,
     description,
-    type
+    type,
   };
 
   apiUpdateProduct(productId, product)
     .then((response) => {
       Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Update product successfully !',
+        position: "top-end",
+        icon: "success",
+        title: "Update product successfully !",
         showConfirmButton: false,
-        timer: 1500
-      })
+        timer: 1500,
+      });
       getProducts();
     })
     .catch((error) => {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Fail to update product !'
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "Fail to update product !",
+      });
     });
 }
 
@@ -237,11 +251,11 @@ function renderProducts(products) {
 // DOM
 getElement("#AddProduct").addEventListener("click", () => {
   // reset modal
-  getElement("#ProductName").value = '';
-  getElement("#ProductImage").value = '';
-  getElement("#ProductPrice").value = '';
-  getElement("#ProductDescription").value = '';
-  getElement("#ProductType").value = '';
+  getElement("#ProductName").value = "";
+  getElement("#ProductImage").value = "";
+  getElement("#ProductPrice").value = "";
+  getElement("#ProductDescription").value = "";
+  getElement("#ProductType").value = "";
 
   getElement(".modal-title").innerHTML = "Adding Product";
   getElement(".modal-footer").innerHTML = `
@@ -254,3 +268,15 @@ getElement("#AddProduct").addEventListener("click", () => {
 function getElement(selector) {
   return document.querySelector(selector);
 }
+
+let modal;
+document.addEventListener("click", (e) => {
+  if (e.target.className === "modal-open") {
+    modal = document.getElementById(e.target.dataset.id);
+    openModal(modal);
+  } else if (e.target.className === "modal-close") {
+    closeModal(modal);
+  } else {
+    return;
+  }
+});

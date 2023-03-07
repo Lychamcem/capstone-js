@@ -52,14 +52,14 @@
 }
 
 @include responsive('xl') {
-   .AdminContent, .AdminModal {
+   .AdminContent{
         padding: 150px;
         font-size: 20px;
     }
 }
 
 @include responsive('lg') {
-    .AdminContent, .AdminModal {
+    .AdminContent{
         padding: 150px;
         font-size: 18px;
     }
@@ -70,16 +70,17 @@
         padding: 130px;
         font-size: 16px;
     }
-    .AdminModal{
-        padding: 110px;
-    }
 }
 
 @include responsive('sm') {
     .AdminContent{
+        font-size: 12px;
         .tableAdmin {
             th,td {
                 padding: 5px;
+                button{
+                    font-size: 10px;
+                }
             }
         }
     }
@@ -88,6 +89,6 @@
 @include responsive('xs') {
     .AdminContent{
         padding: 5px;
-        font-size: 8px;
+        font-size: 10px;
     }
 }
