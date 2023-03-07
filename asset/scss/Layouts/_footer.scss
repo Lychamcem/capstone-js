@@ -135,12 +135,16 @@ footer {
     footer {
 
         .contact {
-
+            text-align: center;
             &>div {
                 display: none;
             }
         }
 
+        .readMore {
+            text-align: center;
+        }
+        
         .footer__right {
             margin-top: 10px;
 

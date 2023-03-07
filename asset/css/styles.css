@@ -515,8 +515,14 @@ footer .footer__right a:hover {
   }
 }
 @media screen and (max-width: 991.98px) {
+  footer .contact {
+    text-align: center;
+  }
   footer .contact > div {
     display: none;
+  }
+  footer .readMore {
+    text-align: center;
   }
   footer .footer__right {
     margin-top: 10px;
