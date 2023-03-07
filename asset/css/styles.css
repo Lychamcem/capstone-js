@@ -742,6 +742,9 @@ footer .footer__right a:hover {
     padding: 130px;
     font-size: 16px;
   }
+  #myModal .modal-body div.text-danger {
+    font-size: 0.9rem;
+  }
 }
 @media screen and (max-width: 575.98px) {
   #admin__section .AdminContent {
@@ -761,6 +764,9 @@ footer .footer__right a:hover {
   #admin__section .AdminContent .tableAdmin th button,
   #admin__section .AdminContent .tableAdmin td button {
     font-size: 10px;
+  }
+  #admin__section #myModal .modal-body div.text-danger {
+    font-size: 0.7rem;
   }
 }
 @media screen and (max-width: 415px) {

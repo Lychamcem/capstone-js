@@ -70,6 +70,14 @@
         padding: 130px;
         font-size: 16px;
     }
+
+    #myModal {
+        .modal-body {
+            div.text-danger {
+                font-size: 0.9rem;
+            }
+        }
+    }
 }
 
 @include responsive('sm') {
@@ -97,6 +105,14 @@
                     button {
                         font-size: 10px;
                     }
+                }
+            }
+        }
+
+        #myModal {
+            .modal-body {
+                div.text-danger {
+                    font-size: 0.7rem;
                 }
             }
         }

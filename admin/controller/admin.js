@@ -313,7 +313,7 @@ function isValidated(name, img, price, description, type) {
     isValidated = false;
   } else {
     getElement('#nameError').classList.add('d-none');
-    getElement("#ProductImage").classList.remove('border-danger');
+    getElement("#ProductName").classList.remove('border-danger');
   }
   //check img
   if (!/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|webp)/.test(img)) {
