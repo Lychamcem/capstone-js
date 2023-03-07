@@ -52,64 +52,42 @@
 }
 
 @include responsive('xl') {
-   .AdminContent{
-    .HeaderTable{
-
+   .AdminContent, .AdminModal {
+        padding: 150px;
+        font-size: 20px;
     }
-    .tableAdmin{
-
-    }
-   }
 }
 
 @include responsive('lg') {
-    .AdminContent{
-        font-size: 20px;
-    .HeaderTable{
-
+    .AdminContent, .AdminModal {
+        padding: 150px;
+        font-size: 18px;
     }
-    .tableAdmin{
-        
-    }
-   }
 }
 
 @include responsive('md') {
-    .AdminContent{
-        font-size: 15px;
-        .HeaderTable{
-    
-        }
-        .tableAdmin{
-            
-        }
-       }
+    .AdminContent {
+        padding: 130px;
+        font-size: 16px;
+    }
+    .AdminModal{
+        padding: 110px;
+    }
 }
 
 @include responsive('sm') {
     .AdminContent{
-        font-size: 12px;
-        .HeaderTable{
-    
+        .tableAdmin {
+            th,td {
+                padding: 5px;
+            }
         }
-        .tableAdmin{
-            
-        }
-       }
+    }
 }
 
 @include responsive('xs') {
     .AdminContent{
-        padding: 0px;
-        font-size: 10px;
-        .HeaderTable{
-            padding: 5px;
-        }
-        .tableAdmin{
-            
-            button{
-                font-size: 10px;
-            }
-        }
-       }
+        padding: 5px;
+        font-size: 8px;
+    }
 }
