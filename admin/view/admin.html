@@ -92,32 +92,38 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title fw-bold">Plant Management</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" onclick="window.resetModal()" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-pagelines" aria-hidden="true"></i></span>
                             <input id="ProductName" type="text" class="form-control" placeholder="Plant Name">
                         </div>
-                        <div class="input-group mb-3">
+                        <div id="nameError" class="text-danger ms-5 d-none">Input name of plant</div>
+                        <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-usd" aria-hidden="true"></i></i></span>
                             <input id="ProductPrice" type="text" class="form-control" placeholder="Price">
                         </div>
-                        <div class="input-group mb-3">
+                        <div id="priceError" class="text-danger ms-5 d-none">Input price of plant,only containing digits</div>
+                        <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
                             <input id="ProductImage" type="text" class="form-control" placeholder="Image Link">
                         </div>
-                        <div class="input-group mb-3">
+                        <div id="imageError" class="text-danger ms-5 d-none">Input an existing image URL</div>
+                        <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-comment" aria-hidden="true"></i></span>
                             <input id="ProductDescription" type="text" class="form-control" placeholder="Description">
                         </div>
-                        <div class="input-group mb-3">
+                        <div id="descriptionError" class="text-danger ms-5 d-none">Input description of plant </div>
+                        <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-sun-o" aria-hidden="true"></i></span>
                             <select class="form-select" id="ProductType" aria-label="Default select example">
                                 <option value="1">Indoor Plants</option>
                                 <option value="2">Outdoor Plants</option>
                             </select>
                         </div>
+                        <div id="typeError" class="text-danger ms-5 d-none">Input type of plant </div>
+
                     </div>
                     <div class="modal-footer"></div>
                 </div>

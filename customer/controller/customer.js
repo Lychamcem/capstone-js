@@ -8,6 +8,7 @@ window.addProductToCart = addProductToCart;
 window.decreaseQuantity = decreaseQuantity;
 window.increaseQuantity = increaseQuantity;
 window.removeProduct = removeProduct;
+window.getProducts = getProducts;
 
 getProducts();
 const cart = getProductsInCart();
@@ -264,4 +265,3 @@ function storeProductsInCart() {
 
     localStorage.setItem('cart', json);
 }
-

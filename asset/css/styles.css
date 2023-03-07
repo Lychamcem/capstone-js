@@ -744,13 +744,22 @@ footer .footer__right a:hover {
   }
 }
 @media screen and (max-width: 575.98px) {
-  .AdminContent {
+  #admin__section .AdminContent {
     font-size: 12px;
   }
-  .AdminContent .tableAdmin th, .AdminContent .tableAdmin td {
+  #admin__section .AdminContent .HeaderTable ul li {
+    font-size: 1.5rem;
+  }
+  #admin__section .AdminContent .HeaderTable ul li button {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+  #admin__section .AdminContent .tableAdmin th,
+  #admin__section .AdminContent .tableAdmin td {
     padding: 5px;
   }
-  .AdminContent .tableAdmin th button, .AdminContent .tableAdmin td button {
+  #admin__section .AdminContent .tableAdmin th button,
+  #admin__section .AdminContent .tableAdmin td button {
     font-size: 10px;
   }
 }

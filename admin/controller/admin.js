@@ -15,6 +15,7 @@ window.createProduct = createProduct;
 window.deleteProduct = deleteProduct;
 window.selectProduct = selectProduct;
 window.updateProduct = updateProduct;
+window.resetModal = resetModal;
 
 // REQUEST API
 function getProducts(searchValue) {
@@ -43,11 +44,9 @@ function createProduct() {
   let img = getElement("#ProductImage").value.trim();
   let price = getElement("#ProductPrice").value.trim();
   let description = getElement("#ProductDescription").value.trim();
-  let type =
-    getElement("#ProductType").value === "1"
-      ? "Indoor Plants"
-      : "Outdoor Plants";
-  if (!name || !img || !price || !description || !type) {
+  let type = getElement("#ProductType").value;
+
+  if (!isValidated(name, img, price, description, type)) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -55,6 +54,10 @@ function createProduct() {
     });
     return;
   }
+
+  //create a new product
+  type = "1" ? "Indoor Plants" : "Outdoor Plants";
+  price = (+price).toString();
   const product = {
     name,
     img,
@@ -173,17 +176,20 @@ function updateProduct(productId) {
   let img = getElement("#ProductImage").value.trim();
   let price = getElement("#ProductPrice").value.trim();
   let description = getElement("#ProductDescription").value.trim();
-  let type =
-    getElement("#ProductType").value === "1"
-      ? "Indoor Plants"
-      : "Outdoor Plants";
-  if (!name || !img || !price || !description || !type) {
+  let type = getElement("#ProductType").value;
+
+  if (!isValidated(name, img, price, description, type)) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
       text: "Please fill information again",
     });
+    return;
   }
+
+  //change information of product
+  type = "1" ? "Indoor Plants" : "Outdoor Plants";
+  price = (+price).toString();
   const product = {
     name,
     img,
@@ -260,7 +266,7 @@ getElement("#AddProduct").addEventListener("click", () => {
   getElement(".modal-title").innerHTML = "Adding Product";
   getElement(".modal-footer").innerHTML = `
     <button id="addNewProduct" onclick="window.createProduct()" type="submit" class="btn-green">Add</button>
-    <button type="button" class="btn-red" data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn-red" data-bs-dismiss="modal" onclick='window.resetModal()'>Close</button>
   `;
 });
 
@@ -280,3 +286,71 @@ document.addEventListener("click", (e) => {
     return;
   }
 });
+
+//reset Modal
+function resetModal() {
+  getElement('#nameError').classList.add('d-none');
+  getElement("#ProductName").classList.remove('border-danger');
+  getElement('#imageError').classList.add('d-none');
+  getElement("#ProductImage").classList.remove('border-danger');
+  getElement('#priceError').classList.add('d-none');
+  getElement("#ProductPrice").classList.remove('border-danger');
+  getElement('#descriptionError').classList.add('d-none');
+  getElement("#ProductDescription").classList.remove('border-danger');
+  getElement('#typeError').classList.add('d-none');
+  getElement("#ProductType").classList.remove('border-danger');
+}
+
+//===========================================
+// Validate
+
+function isValidated(name, img, price, description, type) {
+  let isValidated = true;
+  //check name
+  if (!name) {
+    getElement('#nameError').classList.remove('d-none');
+    getElement("#ProductName").classList.add('border-danger');
+    isValidated = false;
+  } else {
+    getElement('#nameError').classList.add('d-none');
+    getElement("#ProductImage").classList.remove('border-danger');
+  }
+  //check img
+  if (!/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|webp)/.test(img)) {
+    getElement('#imageError').classList.remove('d-none');
+    getElement("#ProductImage").classList.add('border-danger');
+    isValidated = false;
+  } else {
+    getElement('#imageError').classList.add('d-none');
+    getElement("#ProductImage").classList.remove('border-danger');
+  }
+  //check price
+  if (!/^\d+$/.test(price)) {
+    getElement('#priceError').classList.remove('d-none');
+    getElement("#ProductPrice").classList.add('border-danger');
+    isValidated = false;
+  } else {
+    getElement('#priceError').classList.add('d-none');
+    getElement("#ProductPrice").classList.remove('border-danger');
+  }
+  //check description
+  if (!description) {
+    getElement('#descriptionError').classList.remove('d-none');
+    getElement("#ProductDescription").classList.add('border-danger');
+    isValidated = false;
+  } else {
+    getElement('#descriptionError').classList.add('d-none');
+    getElement("#ProductDescription").classList.remove('border-danger');
+  }
+  //check type
+  if (!type) {
+    getElement('#typeError').classList.remove('d-none');
+    getElement("#ProductType").classList.add('border-danger');
+    isValidated = false;
+  } else {
+    getElement('#typeError').classList.add('d-none');
+    getElement("#ProductType").classList.remove('border-danger');
+  }
+
+  return isValidated;
+}

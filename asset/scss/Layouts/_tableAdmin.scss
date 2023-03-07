@@ -52,14 +52,14 @@
 }
 
 @include responsive('xl') {
-   .AdminContent{
+    .AdminContent {
         padding: 150px;
         font-size: 20px;
     }
 }
 
 @include responsive('lg') {
-    .AdminContent{
+    .AdminContent {
         padding: 150px;
         font-size: 18px;
     }
@@ -73,21 +73,40 @@
 }
 
 @include responsive('sm') {
-    .AdminContent{
-        font-size: 12px;
-        .tableAdmin {
-            th,td {
-                padding: 5px;
-                button{
-                    font-size: 10px;
+    #admin__section {
+        .AdminContent {
+            font-size: 12px;
+
+            .HeaderTable ul {
+                li {
+                    font-size: 1.5rem;
+
+                    button {
+                        font-size: 0.7rem;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+
+            .tableAdmin {
+
+                th,
+                td {
+                    padding: 5px;
+
+                    button {
+                        font-size: 10px;
+                    }
                 }
             }
         }
     }
+
+
 }
 
 @include responsive('xs') {
-    .AdminContent{
+    .AdminContent {
         padding: 5px;
         font-size: 10px;
     }
