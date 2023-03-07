@@ -52,6 +52,12 @@
         <!-- PRODUCT TABLE -->
         <div class="container AdminContent">
 
+            <!-- Search Term -->
+            <div class="container searchTerm">
+                <input id="searchName" type="text" placeholder="Type Plants' Name">
+                <button onclick="searchProductName()" class="btn-yellow">Search</button>
+            </div>
+
             <!-- Header Table -->
             <div class="HeaderTable">
                 <ul>
@@ -92,7 +98,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title fw-bold">Plant Management</h2>
-                        <button type="button" class="btn-close" onclick="window.resetModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" onclick="window.resetModal()" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-2">
@@ -104,7 +111,8 @@
                             <span class="input-group-text"><i class="fa fa-usd" aria-hidden="true"></i></i></span>
                             <input id="ProductPrice" type="text" class="form-control" placeholder="Price">
                         </div>
-                        <div id="priceError" class="text-danger ms-5 d-none">Input price of plant,only containing digits</div>
+                        <div id="priceError" class="text-danger ms-5 d-none">Input price of plant,only containing digits
+                        </div>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
                             <input id="ProductImage" type="text" class="form-control" placeholder="Image Link">

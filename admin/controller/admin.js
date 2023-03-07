@@ -16,6 +16,7 @@ window.deleteProduct = deleteProduct;
 window.selectProduct = selectProduct;
 window.updateProduct = updateProduct;
 window.resetModal = resetModal;
+window.searchProductName = searchProductName;
 
 // REQUEST API
 function getProducts(searchValue) {
@@ -270,6 +271,51 @@ getElement("#AddProduct").addEventListener("click", () => {
   `;
 });
 
+// SEARCH PRODUCT BY NAME
+const ProductList = getProductList();
+renderProducts(ProductList);
+
+function searchProductName() {
+  let search = getElement("#searchName").value;
+
+  let newProductList = ProductList.filter((product) => {
+    let name = product.name.toLowerCase();
+    search = search.toLowerCase();
+    return name, indexOf(search) !== -1;
+  });
+
+  // B3: Gọi hàm renderTable để hiển thị ra giao diện
+  renderProducts(newProductList);
+}
+
+function getProductList() {
+  const json = localStorage.getItem("ProductList");
+  if (!json) {
+    return [];
+  }
+  const productList = JSON.parse(json);
+  for (let i = 0; i < productList.length; i++) {
+    const product = productList[i];
+    productList[i] = new product(
+      product.id,
+      product.name,
+      product.email,
+      product.password,
+      product.dateOfBirth,
+      product.course,
+      product.math,
+      product.physics,
+      product.chemistry
+    );
+  }
+  return ProductList;
+}
+
+// ARRANGE PRODUCT BY NAME
+let arrangeProduct = product.name.sort();
+console.log(arrangeProduct);
+renderProducts(arrangeProduct);
+
 // Helpers
 function getElement(selector) {
   return document.querySelector(selector);
@@ -289,16 +335,16 @@ document.addEventListener("click", (e) => {
 
 //reset Modal
 function resetModal() {
-  getElement('#nameError').classList.add('d-none');
-  getElement("#ProductName").classList.remove('border-danger');
-  getElement('#imageError').classList.add('d-none');
-  getElement("#ProductImage").classList.remove('border-danger');
-  getElement('#priceError').classList.add('d-none');
-  getElement("#ProductPrice").classList.remove('border-danger');
-  getElement('#descriptionError').classList.add('d-none');
-  getElement("#ProductDescription").classList.remove('border-danger');
-  getElement('#typeError').classList.add('d-none');
-  getElement("#ProductType").classList.remove('border-danger');
+  getElement("#nameError").classList.add("d-none");
+  getElement("#ProductName").classList.remove("border-danger");
+  getElement("#imageError").classList.add("d-none");
+  getElement("#ProductImage").classList.remove("border-danger");
+  getElement("#priceError").classList.add("d-none");
+  getElement("#ProductPrice").classList.remove("border-danger");
+  getElement("#descriptionError").classList.add("d-none");
+  getElement("#ProductDescription").classList.remove("border-danger");
+  getElement("#typeError").classList.add("d-none");
+  getElement("#ProductType").classList.remove("border-danger");
 }
 
 //===========================================
@@ -308,48 +354,48 @@ function isValidated(name, img, price, description, type) {
   let isValidated = true;
   //check name
   if (!name) {
-    getElement('#nameError').classList.remove('d-none');
-    getElement("#ProductName").classList.add('border-danger');
+    getElement("#nameError").classList.remove("d-none");
+    getElement("#ProductName").classList.add("border-danger");
     isValidated = false;
   } else {
-    getElement('#nameError').classList.add('d-none');
-    getElement("#ProductName").classList.remove('border-danger');
+    getElement("#nameError").classList.add("d-none");
+    getElement("#ProductImage").classList.remove("border-danger");
   }
   //check img
   if (!/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|webp)/.test(img)) {
-    getElement('#imageError').classList.remove('d-none');
-    getElement("#ProductImage").classList.add('border-danger');
+    getElement("#imageError").classList.remove("d-none");
+    getElement("#ProductImage").classList.add("border-danger");
     isValidated = false;
   } else {
-    getElement('#imageError').classList.add('d-none');
-    getElement("#ProductImage").classList.remove('border-danger');
+    getElement("#imageError").classList.add("d-none");
+    getElement("#ProductImage").classList.remove("border-danger");
   }
   //check price
   if (!/^\d+$/.test(price)) {
-    getElement('#priceError').classList.remove('d-none');
-    getElement("#ProductPrice").classList.add('border-danger');
+    getElement("#priceError").classList.remove("d-none");
+    getElement("#ProductPrice").classList.add("border-danger");
     isValidated = false;
   } else {
-    getElement('#priceError').classList.add('d-none');
-    getElement("#ProductPrice").classList.remove('border-danger');
+    getElement("#priceError").classList.add("d-none");
+    getElement("#ProductPrice").classList.remove("border-danger");
   }
   //check description
   if (!description) {
-    getElement('#descriptionError').classList.remove('d-none');
-    getElement("#ProductDescription").classList.add('border-danger');
+    getElement("#descriptionError").classList.remove("d-none");
+    getElement("#ProductDescription").classList.add("border-danger");
     isValidated = false;
   } else {
-    getElement('#descriptionError').classList.add('d-none');
-    getElement("#ProductDescription").classList.remove('border-danger');
+    getElement("#descriptionError").classList.add("d-none");
+    getElement("#ProductDescription").classList.remove("border-danger");
   }
   //check type
   if (!type) {
-    getElement('#typeError').classList.remove('d-none');
-    getElement("#ProductType").classList.add('border-danger');
+    getElement("#typeError").classList.remove("d-none");
+    getElement("#ProductType").classList.add("border-danger");
     isValidated = false;
   } else {
-    getElement('#typeError').classList.add('d-none');
-    getElement("#ProductType").classList.remove('border-danger');
+    getElement("#typeError").classList.add("d-none");
+    getElement("#ProductType").classList.remove("border-danger");
   }
 
   return isValidated;
